@@ -1,6 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "Tank.h"
+#include "UObject/UObjectBaseUtility.h"
 
 
 // Sets default values
@@ -30,5 +31,11 @@ void ATank::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
+}
+
+void ATank::AimAt(FVector OutHitLocation)
+{
+	auto OurTankName = GetName();
+	UE_LOG(LogTemp, Warning, TEXT("%s is aiming at %s"), *OurTankName, *(OutHitLocation.ToString()));
 }
 
