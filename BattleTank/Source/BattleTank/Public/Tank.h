@@ -9,6 +9,7 @@
 
 // Forward Declarations
 class UTankBarrel;
+class UTankTurret;
 class UTankAimingComponent;
 
 UCLASS()
@@ -27,7 +28,7 @@ protected:
 	UTankAimingComponent* TankAimingComponent = nullptr;
 
 	UPROPERTY(EditAnywhere, Category = "Firing")
-	float LaunchSpeed = 100000.f; // TODO Find sensible default
+	float LaunchSpeed = 4000.f;
 
 public:	
 	// Called to bind functionality to input
@@ -37,6 +38,9 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "setup")
 	void SetBarrelReference(UTankBarrel* BarrelToSet);
+
+	UFUNCTION(BlueprintCallable, Category = "setup")
+	void SetTurretReference(UTankTurret* TurretToSet);
 	
 
 };
