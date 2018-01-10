@@ -33,6 +33,12 @@ public:
 	// Sets default values for this component's properties
 	UTankAimingComponent();
 
+	virtual void BeginPlay() override;
+
+	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
+
+	bool IsBarrelMoving();
+
 	void AimAt(FVector OutHitLocation);
 
 	void MoveTowards(FVector AimDirection);
@@ -56,10 +62,12 @@ private:
 	float LaunchSpeed = 5000;
 
 	UPROPERTY(EditDefaultsOnly, Category = "firing")
-	float ReloadTimeInSeconds = 5;
+	float ReloadTimeInSeconds = 3;
 
 	UPROPERTY(EditDefaultsOnly, Category = "Setup")
 	TSubclassOf<AProjectile> ProjectileBlueprint;
 
 	double LastFireTime = 0;
+
+	FVector AimDirection;
 };
