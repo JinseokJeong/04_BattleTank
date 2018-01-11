@@ -6,6 +6,7 @@
 #include "Projectile.h"
 #include "Kismet/GameplayStatics.h"
 #include "Engine/World.h"
+#include <string>
 
 
 // Sets default values for this component's properties
