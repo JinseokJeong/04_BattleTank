@@ -29,7 +29,6 @@ class BATTLETANK_API UTankAimingComponent : public UActorComponent
 	GENERATED_BODY()
 
 public:	
-
 	// Sets default values for this component's properties
 	UTankAimingComponent();
 
@@ -46,23 +45,24 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Setup")
 	void Initialize(UTankBarrel* BarrelToSet, UTankTurret* TurretToSet);
 	
-	UPROPERTY(BlueprintReadOnly, Category = "state")
-	EFiringState FiringState = EFiringState::Reloading;
-
 	UFUNCTION(BlueprintCallable, Category = "Firing")
 	void Fire();
 
+	EFiringState GetFiringState() const;
+
+protected:
+	UPROPERTY(BlueprintReadOnly, Category = "state")
+	EFiringState FiringState = EFiringState::Reloading;
 
 private:
-	
 	UTankBarrel* Barrel = nullptr;
 	UTankTurret* Turret = nullptr;
 	
 	UPROPERTY(EditDefaultsOnly, Category = "Firing")
-	float LaunchSpeed = 5000;
+	float LaunchSpeed = 20000;
 
 	UPROPERTY(EditDefaultsOnly, Category = "firing")
-	float ReloadTimeInSeconds = 3;
+	float ReloadTimeInSeconds = 5;
 
 	UPROPERTY(EditDefaultsOnly, Category = "Setup")
 	TSubclassOf<AProjectile> ProjectileBlueprint;

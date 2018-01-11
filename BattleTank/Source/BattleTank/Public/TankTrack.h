@@ -18,11 +18,11 @@ public:
 	UTankTrack();
 
 	virtual void BeginPlay() override;
-
-	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
+	void ApplySidewayForce();
 
 	UFUNCTION()
 	void OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComponent, FVector NormalImpulse, const FHitResult& Hit);
+	void DriveTrack();
 
 	// Sets a throttle between -1 and +1
 	UFUNCTION(BlueprintCallable, Category = "Input")
@@ -33,5 +33,5 @@ private:
 	UPROPERTY(EditDefaultsOnly)
 	float TrackMaxDrivingForce = 40000000; // Assuem 40 tonne tank, and 1g accelleration
 
-	
+	float CurrentThrottle = 0;
 };

@@ -23,8 +23,6 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Input")
 	void IntendTurnRight(float Throw);
 
-	UFUNCTION(BlueprintCallable, Category = "Input")
-	void IntendTurnLeft(float Throw);
 
 	UFUNCTION(BlueprintCallable, Category = "Setup")
 	void Initialise(UTankTrack * LeftTrackToSet, UTankTrack * RightTrackToSet);

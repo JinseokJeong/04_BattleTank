@@ -6,8 +6,6 @@
 #include "AIController.h"
 #include "TankAIController.generated.h"
 
-
-
 /**
  * 
  */
@@ -15,17 +13,15 @@ UCLASS()
 class BATTLETANK_API ATankAIController : public AAIController
 {
 	GENERATED_BODY()
-	
-	
+		
 public:
-	
 	ATankAIController();
 
 	virtual void BeginPlay() override;
 	virtual void Tick(float DeltaTime) override;
 
-private:
+protected:
 	// How close can the AI tank get to
-	float AcceptanceRadius = 3000;
-	
+	UPROPERTY(EditDefaultsOnly, Category = "setup")
+	float AcceptanceRadius = 8000;
 };
