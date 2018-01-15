@@ -20,6 +20,11 @@ public:
 	virtual void BeginPlay() override;
 	virtual void Tick(float DeltaTime) override;
 
+	virtual void SetPawn(APawn* InPawn) override;
+
+	UFUNCTION()
+	void OnPossessedTankDeath();
+	 
 protected:
 	// How close can the AI tank get to
 	UPROPERTY(EditDefaultsOnly, Category = "setup")

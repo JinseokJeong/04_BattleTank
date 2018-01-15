@@ -4,8 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/PlayerController.h"
-#include "TankPlayerController.generated.h" // Must be the last include
-
+#include "TankPlayerController.generated.h" 
 
 class UTankAimingComponent;
 
@@ -44,5 +43,10 @@ public:
 	ATankPlayerController();
 	virtual void BeginPlay() override;
 	virtual void Tick(float DeltaTime) override;
+
+	void SetPawn(APawn * InPawn);
+
+	UFUNCTION()
+	void OnPossessedTankDeath();
 	
 };
